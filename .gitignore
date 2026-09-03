@@ -1,0 +1,42 @@
+# ---------- 密钥 / 环境（绝不提交） ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+*.pth
+
+# ---------- 运行时产物 / 中间文件 ----------
+.chroma_db/
+output/
+checkpoints/
+*.mp3
+*.mp4
+*.webp
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.gif
+manifest.json
+
+# ---------- 本地调试 / 临时目录 ----------
+.preview/
+_resume_work/
+_check_*.py
+_resume_*.png
+
+# ---------- IDE / 系统 ----------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---------- 日志 ----------
+*.log

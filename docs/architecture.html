@@ -1,0 +1,175 @@
+<html style="margin:0;padding:0;">
+<div style="background-color:transparent;box-sizing:border-box;font-family:'Roboto','PingFang SC','Segoe UI',Arial,sans-serif;">
+  <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;margin:16px 0;">
+
+    <!-- 主架构 SVG -->
+    <div style="flex:1 1 560px;min-width:280px;box-sizing:border-box;">
+      <div style="font-size:15px;font-weight:600;color:#1A1B1C;margin-bottom:8px;">AI 短剧全栈流水线 · 系统架构</div>
+      <svg viewBox="0 0 900 860" width="100%" style="max-width:100%;height:auto;display:block;">
+        <style>
+          .box{fill:#FFFFFF;stroke:rgba(0,0,0,0.08);stroke-width:1;rx:12}
+          .accent{fill:#A3D5E8}
+          .soft{fill:rgba(163,213,232,0.18)}
+          .line{stroke:#9CA3AF;stroke-width:1.5;fill:none}
+          .arrow{stroke:#6B7280;stroke-width:1.5;fill:none;marker-end:url(#ah)}
+          .t{font-size:13px;fill:#1A1B1C;font-weight:600}
+          .s{font-size:11px;fill:#6B7280}
+          .cap{font-size:11px;fill:#1A1B1C;font-weight:500}
+        </style>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/>
+          </marker>
+        </defs>
+
+        <!-- 输入 -->
+        <rect class="box soft" x="330" y="12" width="240" height="40"/>
+        <text class="t" x="450" y="30" text-anchor="middle">一句话世界观 / 点子</text>
+        <text class="s" x="450" y="46" text-anchor="middle">idea →</text>
+
+        <!-- 入口 -->
+        <line class="arrow" x1="450" y1="52" x2="450" y2="70"/>
+        <rect class="box" x="330" y="72" width="240" height="46"/>
+        <text class="t" x="450" y="92" text-anchor="middle">MediaPipeline · 端到端入口</text>
+        <text class="s" x="450" y="108" text-anchor="middle">编排 · 产物落盘 · manifest</text>
+
+        <!-- 到智能体层 -->
+        <line class="arrow" x1="450" y1="118" x2="450" y2="146"/>
+
+        <!-- 智能体层标题 -->
+        <text class="cap" x="30" y="140">① 多智能体编排（Plan-Do-Check-Act）</text>
+        <rect class="box soft" x="30" y="150" width="840" height="150" rx="12"/>
+
+        <!-- 5 个 agent -->
+        <rect class="box" x="60" y="170" width="130" height="64"/>
+        <text class="t" x="125" y="194" text-anchor="middle">Architect</text>
+        <text class="s" x="125" y="212" text-anchor="middle">设定集推演</text>
+        <line class="arrow" x1="190" y1="202" x2="218" y2="202"/>
+
+        <rect class="box" x="220" y="170" width="130" height="64"/>
+        <text class="t" x="285" y="194" text-anchor="middle">Planner</text>
+        <text class="s" x="285" y="212" text-anchor="middle">分集细纲矩阵</text>
+        <line class="arrow" x1="350" y1="202" x2="378" y2="202"/>
+
+        <rect class="box" x="380" y="170" width="130" height="64"/>
+        <text class="t" x="445" y="194" text-anchor="middle">Writer</text>
+        <text class="s" x="445" y="212" text-anchor="middle">单集正文</text>
+        <line class="arrow" x1="510" y1="202" x2="538" y2="202"/>
+
+        <!-- Reviewer 循环 -->
+        <rect class="box" x="540" y="170" width="150" height="64"/>
+        <text class="t" x="615" y="194" text-anchor="middle">Reviewer</text>
+        <text class="s" x="615" y="212" text-anchor="middle">审查·失败回写重写</text>
+        <path class="line" d="M615,234 C615,262 445,262 445,240" stroke-dasharray="4 3"/>
+        <text class="s" x="530" y="262" text-anchor="middle">不通过 → 带意见重写（≤N次）</text>
+
+        <line class="arrow" x1="690" y1="202" x2="718" y2="202"/>
+        <rect class="box" x="720" y="170" width="130" height="64"/>
+        <text class="t" x="785" y="194" text-anchor="middle">Summarizer</text>
+        <text class="s" x="785" y="212" text-anchor="middle">摘要 → 记忆入库</text>
+
+        <!-- 结构化交接提示 -->
+        <text class="s" x="450" y="288" text-anchor="middle">Agent 之间以 Pydantic 结构化对象交接，而非裸字符串</text>
+
+        <!-- 到记忆层 -->
+        <line class="arrow" x1="450" y1="300" x2="450" y2="338"/>
+
+        <!-- 记忆层 -->
+        <text class="cap" x="30" y="352">② 四级记忆 MemoryStore（长篇一致性核心）</text>
+        <rect class="box soft" x="30" y="362" width="840" height="120" rx="12"/>
+
+        <rect class="box" x="55" y="380" width="180" height="56"/>
+        <text class="t" x="145" y="402" text-anchor="middle">Bible Memory</text>
+        <text class="s" x="145" y="420" text-anchor="middle">世界观 / 战力 / 反派</text>
+
+        <rect class="box" x="255" y="380" width="180" height="56"/>
+        <text class="t" x="345" y="402" text-anchor="middle">角色基因锁</text>
+        <text class="s" x="345" y="420" text-anchor="middle">视觉 / 性格一致性</text>
+
+        <rect class="box" x="455" y="380" width="180" height="56"/>
+        <text class="t" x="545" y="402" text-anchor="middle">逐集摘要</text>
+        <text class="s" x="545" y="420" text-anchor="middle">滚动前情提要</text>
+
+        <rect class="box" x="655" y="380" width="195" height="56"/>
+        <text class="t" x="752" y="402" text-anchor="middle">向量记忆 · RAG</text>
+        <text class="s" x="752" y="420" text-anchor="middle">写作前检索最相关片段</text>
+
+        <!-- 到基础设施 -->
+        <line class="arrow" x1="450" y1="482" x2="450" y2="520"/>
+
+        <!-- 基础设施层 -->
+        <text class="cap" x="30" y="534">③ 基础设施（可替换、可降级）</text>
+        <rect class="box soft" x="30" y="544" width="840" height="118" rx="12"/>
+
+        <rect class="box" x="55" y="566" width="150" height="46"/>
+        <text class="t" x="130" y="588" text-anchor="middle">LangChain</text>
+        <text class="s" x="130" y="604" text-anchor="middle">链 / 工具 / 结构化输出</text>
+
+        <rect class="box" x="225" y="566" width="150" height="46"/>
+        <text class="t" x="300" y="588" text-anchor="middle">DeepSeek LLM</text>
+        <text class="s" x="300" y="604" text-anchor="middle">OpenAI 兼容协议</text>
+
+        <rect class="box" x="395" y="566" width="150" height="46"/>
+        <text class="t" x="470" y="588" text-anchor="middle">ChromaDB</text>
+        <text class="s" x="470" y="604" text-anchor="middle">向量库（可换 FAISS）</text>
+
+        <rect class="box" x="565" y="566" width="150" height="46"/>
+        <text class="t" x="640" y="588" text-anchor="middle">PyTorch</text>
+        <text class="s" x="640" y="604" text-anchor="middle">本地向量 / 微调</text>
+
+        <rect class="box" x="735" y="566" width="120" height="46"/>
+        <text class="t" x="795" y="588" text-anchor="middle">edge-tts</text>
+        <text class="s" x="795" y="604" text-anchor="middle">语音合成</text>
+
+        <!-- 到产物 -->
+        <line class="arrow" x1="450" y1="662" x2="450" y2="700"/>
+
+        <!-- 产物 -->
+        <text class="cap" x="30" y="714">④ 产物（output/ 目录，含 manifest.json 追溯）</text>
+        <rect class="box" x="30" y="724" width="840" height="60" rx="12"/>
+        <text class="t" x="450" y="750" text-anchor="middle">episode_NN.txt · episode_NN.mp3 · manifest.json（记忆统计 + 流水线日志）</text>
+        <text class="s" x="450" y="770" text-anchor="middle">后续可接 ComfyUI 文生图 / MoviePy 视频合成（Roadmap P2）</text>
+
+        <!-- 底部图例 -->
+        <text class="s" x="30" y="830" fill="#9CA3AF">实线=正向数据流；虚线=Reviewer 反馈回路；Pydantic 结构化交接贯穿全程</text>
+      </svg>
+    </div>
+
+    <!-- 技能落点 -->
+    <div style="flex:1 1 220px;min-width:200px;box-sizing:border-box;">
+      <div style="font-size:15px;font-weight:600;color:#1A1B1C;margin-bottom:8px;">六项技能 → 代码落点</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(163,213,232,0.15);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">LLM</span>
+          <span style="font-size:12px;color:#6B7280;">模型即插即用 · config.py / llm.py</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(163,213,232,0.15);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">Prompt</span>
+          <span style="font-size:12px;color:#6B7280;">角色化 + few-shot + 上下文注入 · prompts.py</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(148,216,195,0.18);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">LangChain</span>
+          <span style="font-size:12px;color:#6B7280;">Chain / Tool / Structured Output · llm·prompts·tools</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(148,216,195,0.18);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">RAG</span>
+          <span style="font-size:12px;color:#6B7280;">切片→向量化→检索→注入 · rag.py / memory.py</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(201,167,232,0.18);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">PyTorch</span>
+          <span style="font-size:12px;color:#6B7280;">本地向量 / 微调示例 · models/</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;background:rgba(201,167,232,0.18);border-radius:12px;box-sizing:border-box;">
+          <span style="font-size:12px;font-weight:600;color:#1A1B1C;min-width:74px;">Agent</span>
+          <span style="font-size:12px;color:#6B7280;">五角色编排 + 审查回路 · agents.py</span>
+        </div>
+      </div>
+      <div style="margin-top:12px;padding:10px 12px;background:rgba(255,255,255,0.7);border:1px solid rgba(0,0,0,0.08);border-radius:12px;box-sizing:border-box;">
+        <div style="font-size:12px;color:#1A1B1C;font-weight:600;margin-bottom:4px;">旧版差距 → 本次补齐</div>
+        <div style="font-size:12px;color:#6B7280;line-height:1.6;">无 LangChain ❌ → 有 ✅　无 RAG ❌ → 有 ✅　无 PyTorch ❌ → 有 ✅　硬编码 Key ⚠️ → .env ✅　无文档/测试 ❌ → README + 冒烟测试 ✅</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</html>

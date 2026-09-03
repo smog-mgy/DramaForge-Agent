@@ -1,0 +1,42 @@
+# ============================================================
+# Agent 架构全栈自动化媒体引擎 - 依赖清单
+# 推荐环境：Python 3.10 / 3.11
+# 已验证兼容：langchain 0.3.x 与 1.x 两个大版本
+# 安装：pip install -r requirements.txt
+# ============================================================
+
+# ---------- LLM / LangChain 全家桶（核心技能点） ----------
+langchain>=0.3
+langchain-core>=0.3
+langchain-openai>=0.2          # DeepSeek 走 OpenAI 兼容协议
+langchain-community>=0.3
+langchain-chroma>=0.1           # Chroma 向量库的 LangChain 集成（兼容 0.1.x 与 1.x）
+
+# ---------- RAG 检索 ----------
+chromadb>=0.5                   # 兼容 0.5.x 与 1.x
+
+# ---------- PyTorch / 本地向量化（可选但强烈建议，展示 PyTorch 能力） ----------
+# 说明：sentence-transformers 会拉取 torch；无独显也能 CPU 运行，只是慢一些。
+# 若暂时不想装，程序会自动降级到内置的轻量检索器（见 rag.py 的 fallback）。
+# 注意：首次使用会下载 embedding 模型，建议预先运行：
+#   python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('BAAI/bge-small-zh-v1.5')"
+sentence-transformers>=2.0
+torch>=2.0
+
+# ---------- 结构化配置 ----------
+pydantic>=2.0
+pydantic-settings>=2.0
+python-dotenv>=1.0
+
+# ---------- Web UI ----------
+streamlit>=1.30
+
+# ---------- 语音合成 ----------
+edge-tts>=6.1
+
+# ---------- 视频合成（可选） ----------
+moviepy>=1.0.3
+Pillow>=9.0                     # 文字画面兜底（ComfyUI 不可用时生成渐变底+居中文字图片）
+
+# ---------- 工具 ----------
+requests>=2.28
