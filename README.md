@@ -145,12 +145,3 @@ dramaforge-agent/
 - 本仓库只包含经过工程化重构的新代码；旧版含密钥的开发脚本已归档在本地，未随仓库发布。
 
 ---
-
-## 7. Roadmap（可写进简历的下一步）
-
-- [ ] 接入 **LangGraph**：把多智能体编排升级为 StateGraph（分支/条件跳转/人机协同）
-- [ ] 接入 **FAISS / Milvus**：更大规模向量库 + 混合检索(BM25+向量)
-- [ ] 增加 **Agentic RAG**：检索判断(query analysis + 多跳检索)
-- [ ] 用 `fine_tune.py` 训练内容质量模型，接入 Reviewer 做「模型打分 + LLM 修正」混合审查
-- [ ] 补 Evaluation：剧情一致性自动评测集 + 指标报表
-- [ ] Docker / CI 一键部署
