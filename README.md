@@ -2,7 +2,7 @@
 
 > 项目原名「Agent 架构全栈自动化媒体引擎」，现整理为 `dramaforge-agent`。
 > 一套 **LLM Agent 驱动的短剧生产流水线**：从一句话世界观 → 长篇设定集 → 分集细纲 → 正文 → 审查自纠错 → RAG 记忆 → 语音/视频成片。
-> 本版本为面向 **AI Agent 实习 / 校招** 重构的工程化实现，重点展示 **LLM、Prompt Engineering、LangChain、RAG、PyTorch、多智能体编排** 六项硬技能。
+> 重点展示 **LLM、Prompt Engineering、LangChain、RAG、PyTorch、多智能体编排** 六项硬技能。
 
 ---
 
@@ -57,9 +57,9 @@
 
 ---
 
-## 3. 六项招聘技能 → 在代码里的落点
+## 3. 代码里的落点
 
-| 技能 | 你面试时能讲的东西 | 代码位置 |
+| 技能 | 作用 | 代码位置 |
 | --- | --- | --- |
 | **LLM** | 模型即插即用（DeepSeek 走 OpenAI 兼容协议，换模型只改配置）；温度/超参统一管理 | `agent_media/config.py` · `agent_media/llm.py` |
 | **Prompt Engineering** | 角色化 System Prompt 集中管理；Few-shot 约束 JSON 格式；RAG 上下文注入（Grounded Generation）；结构化输出约束 | `agent_media/prompts.py` |
@@ -68,7 +68,6 @@
 | **PyTorch** | 本地语义向量（sentence-transformers 后端）；完整微调示例（数据加载/训练循环/指标/保存加载） | `agent_media/models/embeddings.py` · `fine_tune.py` · `classifier.py` |
 | **Agent 架构** | 多角色拆分(Architect/Planner/Writer/Reviewer/Summarizer)；Plan-Do-Check-Act 反射回路；结构化交接 | `agent_media/agents.py` · `pipeline.py` |
 
-> 💡 面试建议：先讲"痛点 → 解法"，再指着上面表格里的代码逐条展开，最后跑一遍 `demo` 或 UI 演示。
 
 ---
 
